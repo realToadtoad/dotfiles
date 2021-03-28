@@ -1,7 +1,10 @@
 set nocompatible
 set termguicolors
 
+set mouse=a
+
 set completeopt=menuone,noselect
+set shortmess+=c
 
 call plug#begin()
 Plug 'sheerun/vim-polyglot'
@@ -10,7 +13,6 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'itchyny/lightline.vim'
-Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 call plug#end()
@@ -40,8 +42,8 @@ let g:compe.source.vsnip = v:true
 inoremap <silent><expr> <C-Space> compe#complete()
 inoremap <silent><expr> <CR>      compe#confirm('<CR>')
 inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-" inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-" inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
 lua << EOF
 require'lsp_signature'.on_attach()
@@ -53,6 +55,6 @@ let g:tokyonight_enable_italic = 1
 let g:lightline = {'colorscheme' : 'tokyonight'}
 
 colorscheme tokyonight
-set guifont=Victor\ Mono:h11
+set guifont=Victor\ Mono
 set number
 set noshowmode

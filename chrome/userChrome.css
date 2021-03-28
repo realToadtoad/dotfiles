@@ -1,0 +1,21 @@
+/* hide tab bar */
+#main-window:not([tabsintitlebar="true"]) #TabsToolbar {
+    visibility: collapse !important;
+}
+#tabbrowser-tabs {
+  visibility: collapse !important;
+}
+/* hide sidebar header */
+#sidebar-header {
+  display: none;
+}
+
+/* hide private mode indicator and add to menu bar */
+#TabsToolbar .private-browsing-indicator { display: none }
+#main-window[privatebrowsingmode] #toolbar-menubar spacer {
+  background-image: url("chrome://browser/skin/private-browsing.svg");
+  background-repeat: no-repeat;
+  background-size: auto auto;
+  background-position: right;
+  margin-inline: 7px;
+}
