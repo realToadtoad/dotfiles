@@ -6,15 +6,23 @@ set mouse=a
 set completeopt=menuone,noselect
 set shortmess+=c
 
+set tabstop=2
+set shiftwidth=2
+set expandtab
+
 call plug#begin()
 Plug 'sheerun/vim-polyglot'
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 Plug 'ray-x/lsp_signature.nvim'
-Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 let g:compe = {}
@@ -45,16 +53,21 @@ inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
 inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
+let mapleader = ";"
+nnoremap <leader>v <cmd>CHADopen<cr>
+nnoremap <leader>f <cmd>FZF<cr>
+
 lua << EOF
 require'lsp_signature'.on_attach()
 require'lspconfig'.tsserver.setup{}
 EOF
 
 let g:tokyonight_style = 'night'
-let g:tokyonight_enable_italic = 1
-let g:lightline = {'colorscheme' : 'tokyonight'}
+" let g:tokyonight_enable_italic = 1
+" let g:airline_powerline_fonts = 1
+let g:airline_symbols_ascii = 1
 
 colorscheme tokyonight
-set guifont=Victor\ Mono
+set guifont=Ligconsolata
 set number
 set noshowmode
