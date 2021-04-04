@@ -56,6 +56,7 @@ inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 let mapleader = ";"
 nnoremap <leader>v <cmd>CHADopen<cr>
 nnoremap <leader>f <cmd>FZF<cr>
+nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
 
 lua << EOF
 require'lsp_signature'.on_attach()
@@ -63,11 +64,35 @@ require'lspconfig'.tsserver.setup{}
 EOF
 
 let g:tokyonight_style = 'night'
-" let g:tokyonight_enable_italic = 1
-" let g:airline_powerline_fonts = 1
-let g:airline_symbols_ascii = 1
+let g:tokyonight_enable_italic = 1
+
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+let g:airline_symbols.linenr = 'Ξ '
 
 colorscheme tokyonight
-set guifont=Ligconsolata
+" set guifont=JetBrains\ Mono\ Nerd\ Font\ Mono:h12
+set guifont=JetBrains\ Mono:h12
 set number
 set noshowmode
