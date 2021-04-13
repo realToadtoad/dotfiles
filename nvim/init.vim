@@ -91,6 +91,8 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 let g:airline_symbols.linenr = 'Ξ '
 
+let g:chadtree_settings = { "theme.icon_glyph_set": "ascii" }
+
 colorscheme tokyonight
 " set guifont=JetBrains\ Mono\ Nerd\ Font\ Mono:h12
 set guifont=JetBrains\ Mono:h12
