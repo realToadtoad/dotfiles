@@ -189,3 +189,6 @@ exec "~/.config/i3/wallpaper.sh"
 
 # Start picom (script for i3)
 exec "~/.config/i3/picom.sh"
+
+# Set qt theme (use qt5ct) - for gtk, use lxappearance
+exec "export QT_QPA_PLATFORM_THEME=qt5ct"
