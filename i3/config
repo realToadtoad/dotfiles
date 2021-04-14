@@ -181,5 +181,8 @@ bar {
         status_command i3status
 }
 
-# Lock screen on hotkey (script for both i3 and wayland
+# Lock screen on hotkey (script for both i3 and sway)
 bindsym $mod+Shift+x exec "~/.config/i3/lock.sh"
+
+# Set wallpaper (script for both i3 and sway)
+exec "~/.config/i3/wallpaper.sh"
