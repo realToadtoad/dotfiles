@@ -186,3 +186,6 @@ bindsym $mod+Shift+x exec "~/.config/i3/lock.sh"
 
 # Set wallpaper (script for both i3 and sway)
 exec "~/.config/i3/wallpaper.sh"
+
+# Start picom (script for i3)
+exec "~/.config/i3/picom.sh"
