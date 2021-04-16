@@ -95,6 +95,7 @@ let g:chadtree_settings = { "theme.icon_glyph_set": "ascii" }
 
 colorscheme tokyonight
 " set guifont=JetBrains\ Mono\ Nerd\ Font\ Mono:h12
-set guifont=JetBrains\ Mono:h12
+" ===
+set guifont=JetBrains\ Mono:h13
 set number
 set noshowmode
