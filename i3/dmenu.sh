@@ -12,7 +12,7 @@ elif echo $DESKTOP_SESSION | grep i3
 then
   if command -v rofi &> /dev/null
   then
-    rofi -combi-modi window,drun -modi combi -show combi -theme dracula # admittibly, the wofi theme is cooler
+    rofi -combi-modi window,drun -modi combi -show combi -theme dracula
   else
     dmenu_run
   fi
