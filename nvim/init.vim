@@ -58,7 +58,7 @@ nnoremap <leader>v <cmd>CHADopen<cr>
 nnoremap <leader>f <cmd>FZF<cr>
 nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
 
-lua << EOF
+silent! lua << EOF
 require'lsp_signature'.on_attach()
 require'lspconfig'.tsserver.setup{}
 EOF
@@ -93,7 +93,7 @@ let g:airline_symbols.linenr = 'Ξ '
 
 let g:chadtree_settings = { "theme.icon_glyph_set": "ascii" }
 
-colorscheme tokyonight
+silent! colorscheme tokyonight
 " set guifont=JetBrains\ Mono\ Nerd\ Font\ Mono:h12
 " ===
 set guifont=JetBrains\ Mono:h13
