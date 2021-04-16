@@ -1,7 +1,7 @@
 # dotfiles
 ### my personal linux configuration, wip
 
-[image to be added eventually, not that its anything special]
+![screenshot/preview](screenshot.png)
 
 ## installation
 ```
