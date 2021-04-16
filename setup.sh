@@ -12,6 +12,7 @@ fi
 if ! command -v git &>/dev/null
 then
   echo "Installing git..."
+  sudo pacman -S git --noconfirm
 fi
 
 if ! command -v yay &>/dev/null
@@ -19,13 +20,13 @@ then
   echo "Installing yay..."
   git clone https://aur.archlinux.org/yay.git
   cd yay
-  makepkg -si
+  makepkg -si --noconfirm
   cd ..
   rm -rf yay
 fi
 
 echo "Setting up chaotic-aur..."
-yay -S chaotic-mirorlist chaotic-aur
+yay -S chaotic-mirrorlist chaotic-keyring --noconfirm
 if ! (cat /etc/pacman.conf | grep chaotic-aur &>/dev/null)
 then
   sudo echo "" >> /etc/pacman.conf
@@ -34,7 +35,7 @@ then
 fi
 
 echo "Installing all software as part of config..."
-yay -Sy firefox kitty neovim-git neovim-plug ttf-jetbrains-mono i3 picom rofi dmenu feh
+yay -Sy firefox kitty neovim-git neovim-plug ttf-jetbrains-mono i3 picom rofi dmenu feh --noconfirm
 # Note to self: change neovim-git to neovim once 0.5.0 is out
 
 echo "Pulling git submodules..."
@@ -49,7 +50,7 @@ for PROF in $FF_PROFILES
 do
   if [ -d "$HOME/.mozilla/firefox/$PROF/chrome" ]
   then
-    mv "$HOME/.mozilla/firefox/$PROF/chrome/" "$HOME/.mozilla/firefox/$PROF/chrome.old/"
+    mv "$HOME/.mozilla/firefox/$PROF/chrome" "$HOME/.mozilla/firefox/$PROF/chrome.old"
   fi
   ln -s "$DIR/firefox/chrome/" "$HOME/.mozilla/firefox/$PROF/"
   if [ -f "$HOME/.mozilla/firefox/$PROF/user.js" ]
