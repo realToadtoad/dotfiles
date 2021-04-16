@@ -1,0 +1,6 @@
+[submodule "themes/dracula/rofi"]
+	path = themes/dracula/rofi
+	url = https://github.com/dracula/rofi
+[submodule "themes/dracula/wofi"]
+	path = themes/dracula/wofi
+	url = https://github.com/dracula/wofi
