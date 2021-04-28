@@ -13,7 +13,7 @@
 /* hide private mode indicator and add to menu bar */
 #TabsToolbar .private-browsing-indicator { display: none }
 #main-window[privatebrowsingmode] #toolbar-menubar spacer {
-  background-image: url("chrome://browser/skin/private-browsing.svg");
+  background-image: url("chrome://browser/skin/indicator-private-browsing.svg");
   background-repeat: no-repeat;
   background-size: auto auto;
   background-position: right;
