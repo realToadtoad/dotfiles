@@ -10,9 +10,15 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
+function! Cond(Cond, ...)
+  let opts = get(a:000, 0, {})
+  return a:Cond ? opts : extend(opts, { 'on': [], 'for': [] })
+endfunction
+
 call plug#begin()
 Plug 'sheerun/vim-polyglot'
 Plug 'ghifarit53/tokyonight-vim'
+Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 Plug 'ray-x/lsp_signature.nvim'
@@ -23,6 +29,8 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 Plug 'tpope/vim-fugitive'
+Plug 'https://github.com/easymotion/vim-easymotion', Cond(!exists('g:vscode'))
+Plug 'asvetliakov/vim-easymotion', Cond(exists('g:vscode'), { 'as': 'vsc-easymotion' })
 call plug#end()
 
 let g:compe = {}
@@ -57,6 +65,11 @@ let mapleader = ";"
 nnoremap <leader>v <cmd>CHADopen<cr>
 nnoremap <leader>f <cmd>FZF<cr>
 nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
+
+noremap <leader>y "+y
+noremap <leader>p "+p
+noremap <leader>P "+P
+noremap <leader>d "+d
 
 silent! lua << EOF
 require'lsp_signature'.on_attach()
@@ -93,9 +106,10 @@ let g:airline_symbols.linenr = 'Ξ '
 
 let g:chadtree_settings = { "theme.icon_glyph_set": "ascii" }
 
-silent! colorscheme tokyonight
+" silent! colorscheme tokyonight
+silent! colorscheme spaceduck
 " set guifont=JetBrains\ Mono\ Nerd\ Font\ Mono:h12
 " ===
-set guifont=JetBrains\ Mono:h13
+set guifont=Victor\ Mono
 set number
 set noshowmode
