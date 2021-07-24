@@ -16,7 +16,6 @@ function! Cond(Cond, ...)
 endfunction
 
 call plug#begin()
-Plug 'sheerun/vim-polyglot'
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
 Plug 'neovim/nvim-lspconfig'
@@ -31,6 +30,8 @@ Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 Plug 'tpope/vim-fugitive'
 Plug 'https://github.com/easymotion/vim-easymotion', Cond(!exists('g:vscode'))
 Plug 'asvetliakov/vim-easymotion', Cond(exists('g:vscode'), { 'as': 'vsc-easymotion' })
+Plug 'jiangmiao/auto-pairs'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 let g:compe = {}
@@ -71,9 +72,24 @@ noremap <leader>p "+p
 noremap <leader>P "+P
 noremap <leader>d "+d
 
+" silent! lua << EOF
+" require'lspconfig'.tsserver.setup{}
+" require'lsp_signature'.setup()
+" EOF
+
 silent! lua << EOF
-require'lsp_signature'.on_attach()
-require'lspconfig'.tsserver.setup{}
+require'lspconfig'.tsserver.setup{
+  on_attach = function(client)
+    require'lsp_signature'.on_attach()
+  end
+}
+
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
+}
 EOF
 
 let g:tokyonight_style = 'night'
@@ -106,8 +122,8 @@ let g:airline_symbols.linenr = 'Ξ '
 
 let g:chadtree_settings = { "theme.icon_glyph_set": "ascii" }
 
-" silent! colorscheme tokyonight
-silent! colorscheme spaceduck
+silent! colorscheme tokyonight
+" silent! colorscheme spaceduck
 " set guifont=JetBrains\ Mono\ Nerd\ Font\ Mono:h12
 " ===
 set guifont=Victor\ Mono
