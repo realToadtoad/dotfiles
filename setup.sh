@@ -39,7 +39,7 @@ then
 fi
 
 echo "Installing all software as part of config..."
-yay -Sy firefox kitty neovim-git neovim-plug ttf-jetbrains-mono i3 picom rofi dmenu feh --noconfirm &>/dev/null
+yay -Sy firefox kitty neovim ttf-jetbrains-mono i3 picom rofi dmenu feh --noconfirm &>/dev/null
 # Note to self: change neovim-git to neovim once 0.5.0 is out
 
 echo "Pulling git submodules..."
@@ -81,6 +81,8 @@ fi
 ln -s "$DIR/kitty" "$HOME/.config/"
 
 echo "Symlinking and installing nvim config/plugins..."
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 if [ -d "$HOME/.config/nvim" ]
 then
   rm -rf "$HOME/.config/nvim.old" &>/dev/null
