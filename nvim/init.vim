@@ -16,22 +16,25 @@ function! Cond(Cond, ...)
 endfunction
 
 call plug#begin()
-Plug 'ghifarit53/tokyonight-vim'
-Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'folke/tokyonight.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'yamatsum/nvim-nonicons'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 Plug 'ray-x/lsp_signature.nvim'
-Plug 'vim-airline/vim-airline'
+Plug 'hoob3rt/lualine.nvim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 Plug 'tpope/vim-fugitive'
 Plug 'https://github.com/easymotion/vim-easymotion', Cond(!exists('g:vscode'))
 Plug 'asvetliakov/vim-easymotion', Cond(exists('g:vscode'), { 'as': 'vsc-easymotion' })
-Plug 'jiangmiao/auto-pairs'
+Plug 'windwp/nvim-autopairs'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'windwp/nvim-ts-autotag'
+Plug 'nvim-telescope/telescope.nvim'
 call plug#end()
 
 let g:compe = {}
@@ -54,7 +57,7 @@ let g:compe.source.buffer = v:true
 let g:compe.source.calc = v:true
 let g:compe.source.nvim_lsp = v:true
 let g:compe.source.nvim_lua = v:true
-let g:compe.source.vsnip = v:true
+let g:compe.source.vsnip = v:false
 
 inoremap <silent><expr> <C-Space> compe#complete()
 inoremap <silent><expr> <CR>      compe#confirm('<CR>')
@@ -62,27 +65,23 @@ inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
 inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
-let mapleader = ";"
-nnoremap <leader>v <cmd>CHADopen<cr>
-nnoremap <leader>f <cmd>FZF<cr>
-nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
-
-noremap <leader>y "+y
-noremap <leader>p "+p
-noremap <leader>P "+P
-noremap <leader>d "+d
-
-" silent! lua << EOF
-" require'lspconfig'.tsserver.setup{}
-" require'lsp_signature'.setup()
-" EOF
-
-silent! lua << EOF
+lua << EOF
 require'lspconfig'.tsserver.setup{
   on_attach = function(client)
     require'lsp_signature'.on_attach()
   end
 }
+
+require'nvim-autopairs'.setup({
+  check_ts = true,
+  ts_config = {},
+  enable_check_bracket_line = true,
+  ignored_next_char = "[%w%.]",
+})
+require'nvim-autopairs.completion.compe'.setup({
+  map_cr = true,
+  map_complete = true
+})
 
 require'nvim-treesitter.configs'.setup {
   highlight = {
@@ -91,44 +90,50 @@ require'nvim-treesitter.configs'.setup {
   },
   indent = {
     enable = true
+  },
+  autopairs = {
+    enable = true
+  },
+  autotag = {
+    enable = true
   }
 }
+
+  require'nvim-web-devicons'.setup()
+
+  require'nvim-nonicons'.get("file")
+
+  require('lualine').setup({
+    options = {
+      theme = 'tokyonight'
+    }
+  })
 EOF
+
+let mapleader = ";"
+nnoremap <leader>v <cmd>CHADopen<cr>
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
+
+noremap <leader>y "+y
+noremap <leader>p "+p
+noremap <leader>P "+P
+noremap <leader>d "+d
+noremap <leader>= ggVG=<C-o>
+
 
 let g:tokyonight_style = 'night'
 let g:tokyonight_enable_italic = 1
 
-let g:airline_powerline_fonts = 1
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
-let g:airline_symbols.linenr = 'Ξ '
-
-let g:chadtree_settings = { "theme.icon_glyph_set": "ascii" }
+" let g:chadtree_settings = { "theme.icon_glyph_set": "ascii" }
 
 silent! colorscheme tokyonight
 " silent! colorscheme spaceduck
 " set guifont=JetBrains\ Mono\ Nerd\ Font\ Mono:h12
-" ===
-set guifont=Victor\ Mono
+
+set guifont=VictorMono\ Nerd\ Font
 set number
 set noshowmode
