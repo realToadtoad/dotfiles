@@ -39,8 +39,7 @@ then
 fi
 
 echo "Installing all software as part of config..."
-yay -Sy firefox kitty neovim ttf-jetbrains-mono i3 picom rofi dmenu feh --noconfirm &>/dev/null
-# Note to self: change neovim-git to neovim once 0.5.0 is out
+yay -Sy firefox kitty neovim font-victor-mono nerd-fonts-victor-mono i3 picom rofi dmenu feh --noconfirm &>/dev/null
 
 echo "Pulling git submodules..."
 git submodule update --init
@@ -89,7 +88,8 @@ then
   mv "$HOME/.config/nvim" "$HOME/.config/nvim.old"
 fi
 ln -s "$DIR/nvim" "$HOME/.config/"
-nvim --headless +PlugInstall +qall
+git clone https://github.com/wbthomason/packer.nvim "$DIR/nvim/site/pack/packer/start/packer.nvim"
+nvim --headless +PackerCompile +PackerInstall +qall
 
 echo "Symlinking picom config..."
 if [ -d "$HOME/.config/picom" ]
