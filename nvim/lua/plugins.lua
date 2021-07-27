@@ -8,12 +8,12 @@ require('packer').startup(function()
 
   -- theming / customization
   use 'folke/tokyonight.nvim'
-  use {'yamatsum/nvim-nonicons', requires = {'kyazdani42/nvim-web-devicons'}}
+  use 'kyazdani42/nvim-web-devicons'
   use 'hoob3rt/lualine.nvim'
 
   -- filesystem navigation
   use 'nvim-telescope/telescope.nvim'
-  use {'ms-jpq/chadtree', branch = 'chad', run = 'python3 -m chadtree deps'}
+  use 'kyazdani42/nvim-tree.lua'
 
   -- lsp
   use 'neovim/nvim-lspconfig'

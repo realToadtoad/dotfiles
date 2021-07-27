@@ -1,2 +1,2 @@
-require('nvim-web-devicons').setup({})
-require('nvim-nonicons')
+require('nvim-web-devicons').setup({default = true})
+-- require('nvim-nonicons')

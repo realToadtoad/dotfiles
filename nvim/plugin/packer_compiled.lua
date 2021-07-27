@@ -69,10 +69,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  chadtree = {
-    loaded = true,
-    path = "/home/toadtoad/.local/share/nvim/site/pack/packer/start/chadtree"
-  },
   ["lightspeed.nvim"] = {
     loaded = true,
     path = "/home/toadtoad/.local/share/nvim/site/pack/packer/start/lightspeed.nvim"
@@ -97,9 +93,9 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/toadtoad/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
   },
-  ["nvim-nonicons"] = {
+  ["nvim-tree.lua"] = {
     loaded = true,
-    path = "/home/toadtoad/.local/share/nvim/site/pack/packer/start/nvim-nonicons"
+    path = "/home/toadtoad/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     loaded = true,
