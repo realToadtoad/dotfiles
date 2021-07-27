@@ -28,8 +28,7 @@ require('packer').startup(function()
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
   use 'tpope/vim-fugitive'
-  use {'easymotion/vim-easymotion', cond = vim.api.nvim_eval('!exists("g:vscode")')} -- load different easymotion depending on if using nvim or vscode nvim plugin
-  use {'asvetliakov/vim-easymotion', cond = vim.api.nvim_eval('exists("g:vscode")'), as = 'vsc-easymotion'}
+  use 'ggandor/lightspeed.nvim'
   use 'windwp/nvim-autopairs'
 
 end)

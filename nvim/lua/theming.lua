@@ -8,3 +8,4 @@ lualine_theme = 'tokyonight'
 
 -- set font
 vim.opt.guifont = 'VictorMono Nerd Font'
+-- vim.opt.guifont = 'Victor Mono'
