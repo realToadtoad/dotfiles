@@ -5,7 +5,16 @@ vim.opt.completeopt = {'menuone', 'noselect'}
 vim.opt.shortmess = vim.opt.shortmess + 'c'
 
 -- lsp config
-require('lspconfig').tsserver.setup({
+local nvim_lsp = require("lspconfig")
+nvim_lsp.tsserver.setup({
+  on_attach = function(client)
+    require('lsp_signature').on_attach()
+  end
+})
+local pid = vim.fn.getpid();
+local omnisharp_bin = (vim.fn.has("win32") == 1) and "" or "/usr/bin/omnisharp"; -- add windows path next time i use windows
+nvim_lsp.omnisharp.setup({
+  cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) };
   on_attach = function(client)
     require('lsp_signature').on_attach()
   end
