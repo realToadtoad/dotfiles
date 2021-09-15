@@ -13,7 +13,7 @@ require('editing')
 -- keymapping
 require('keymapping.leader')
 require('keymapping.compe')
-require('keymapping.chadtree')
+require('keymapping.nvimtree')
 require('keymapping.telescope')
 
 -- theming
