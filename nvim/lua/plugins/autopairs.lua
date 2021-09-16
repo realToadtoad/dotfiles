@@ -5,7 +5,7 @@ require('nvim-autopairs').setup({
   ignored_next_char = "[%w%.'\"]"; -- maybe remove ' and " from the list?
 })
 
-require('nvim-autopairs.completion.compe').setup({
+require('nvim-autopairs.completion.cmp').setup({
   map_cr = true;
   map_complete = true;
 })
