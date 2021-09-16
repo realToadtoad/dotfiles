@@ -19,6 +19,11 @@ nvim_lsp.omnisharp.setup({
     require('lsp_signature').on_attach()
   end
 })
+nvim_lsp.texlab.setup({
+  on_attach = function(client)
+    require('lsp_signature' ).on_attach()
+  end
+})
 
 -- completion plugin
 require('cmp').setup({

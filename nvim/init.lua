@@ -12,7 +12,6 @@ require('editing')
 
 -- keymapping
 require('keymapping.leader')
-require('keymapping.compe')
 require('keymapping.nvimtree')
 require('keymapping.telescope')
 
