@@ -33,9 +33,9 @@ echo "Setting up chaotic-aur..."
 yay -S chaotic-mirrorlist chaotic-keyring --noconfirm &>/dev/null
 if ! (cat /etc/pacman.conf | grep chaotic-aur &>/dev/null)
 then
-  sudo echo "" >> /etc/pacman.conf
-  sudo echo "[chaotic-aur]" >> /etc/pacman.conf
-  sudo echo "Include = /etc/pacman.d/chaotic-mirrorlist" >> /etc/pacman.conf
+  echo "" | sudo tee -a /etc/pacman.conf
+  echo "[chaotic-aur]" | sudo tee -a /etc/pacman.conf
+  echo "Include = /etc/pacman.d/chaotic-mirrorlist" | sudo tee -a /etc/pacman.conf
 fi
 
 echo "Installing all software as part of config..."
@@ -80,15 +80,13 @@ fi
 ln -s "$DIR/kitty" "$HOME/.config/"
 
 echo "Symlinking and installing nvim config/plugins..."
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+git clone https://github.com/wbthomason/packer.nvim "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
 if [ -d "$HOME/.config/nvim" ]
 then
   rm -rf "$HOME/.config/nvim.old" &>/dev/null
   mv "$HOME/.config/nvim" "$HOME/.config/nvim.old"
 fi
 ln -s "$DIR/nvim" "$HOME/.config/"
-git clone https://github.com/wbthomason/packer.nvim "$DIR/nvim/site/pack/packer/start/packer.nvim"
 nvim --headless +PackerCompile +PackerInstall +qall
 
 echo "Symlinking picom config..."

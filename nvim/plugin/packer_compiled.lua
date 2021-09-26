@@ -44,8 +44,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "C:\\Users\\AIDENS~1\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\share\\lua\\5.1\\?.lua;C:\\Users\\AIDENS~1\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\share\\lua\\5.1\\?\\init.lua;C:\\Users\\AIDENS~1\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\lib\\luarocks\\rocks-5.1\\?.lua;C:\\Users\\AIDENS~1\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\lib\\luarocks\\rocks-5.1\\?\\init.lua"
-local install_cpath_pattern = "C:\\Users\\AIDENS~1\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\lib\\lua\\5.1\\?.so"
+local package_path_str = "/home/toadtoad/.cache/nvim/packer_hererocks/2.0.5/share/lua/5.1/?.lua;/home/toadtoad/.cache/nvim/packer_hererocks/2.0.5/share/lua/5.1/?/init.lua;/home/toadtoad/.cache/nvim/packer_hererocks/2.0.5/lib/luarocks/rocks-5.1/?.lua;/home/toadtoad/.cache/nvim/packer_hererocks/2.0.5/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/toadtoad/.cache/nvim/packer_hererocks/2.0.5/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -71,95 +71,95 @@ time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   LuaSnip = {
     loaded = true,
-    path = "C:\\Users\\Aiden Sato\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\LuaSnip"
+    path = "/home/toadtoad/.local/share/nvim/site/pack/packer/start/LuaSnip"
   },
   ["cmp-buffer"] = {
     loaded = true,
-    path = "C:\\Users\\Aiden Sato\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-buffer"
+    path = "/home/toadtoad/.local/share/nvim/site/pack/packer/start/cmp-buffer"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
-    path = "C:\\Users\\Aiden Sato\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-nvim-lsp"
+    path = "/home/toadtoad/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp"
   },
   ["cmp-path"] = {
     loaded = true,
-    path = "C:\\Users\\Aiden Sato\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-path"
+    path = "/home/toadtoad/.local/share/nvim/site/pack/packer/start/cmp-path"
   },
   cmp_luasnip = {
     loaded = true,
-    path = "C:\\Users\\Aiden Sato\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp_luasnip"
+    path = "/home/toadtoad/.local/share/nvim/site/pack/packer/start/cmp_luasnip"
   },
   ["lightspeed.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\Aiden Sato\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lightspeed.nvim"
+    path = "/home/toadtoad/.local/share/nvim/site/pack/packer/start/lightspeed.nvim"
   },
   ["lsp_signature.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\Aiden Sato\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lsp_signature.nvim"
+    path = "/home/toadtoad/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\Aiden Sato\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lualine.nvim"
+    path = "/home/toadtoad/.local/share/nvim/site/pack/packer/start/lualine.nvim"
   },
   ["nvim-autopairs"] = {
     loaded = true,
-    path = "C:\\Users\\Aiden Sato\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-autopairs"
+    path = "/home/toadtoad/.local/share/nvim/site/pack/packer/start/nvim-autopairs"
   },
   ["nvim-cmp"] = {
     loaded = true,
-    path = "C:\\Users\\Aiden Sato\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-cmp"
+    path = "/home/toadtoad/.local/share/nvim/site/pack/packer/start/nvim-cmp"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
-    path = "C:\\Users\\Aiden Sato\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-lspconfig"
+    path = "/home/toadtoad/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
-    path = "C:\\Users\\Aiden Sato\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-tree.lua"
+    path = "/home/toadtoad/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     loaded = true,
-    path = "C:\\Users\\Aiden Sato\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-treesitter"
+    path = "/home/toadtoad/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
   },
   ["nvim-ts-autotag"] = {
     loaded = true,
-    path = "C:\\Users\\Aiden Sato\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-ts-autotag"
+    path = "/home/toadtoad/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
-    path = "C:\\Users\\Aiden Sato\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-web-devicons"
+    path = "/home/toadtoad/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\Aiden Sato\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\packer.nvim"
+    path = "/home/toadtoad/.local/share/nvim/site/pack/packer/start/packer.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\Aiden Sato\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\plenary.nvim"
+    path = "/home/toadtoad/.local/share/nvim/site/pack/packer/start/plenary.nvim"
   },
   ["popup.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\Aiden Sato\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\popup.nvim"
+    path = "/home/toadtoad/.local/share/nvim/site/pack/packer/start/popup.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\Aiden Sato\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\telescope.nvim"
+    path = "/home/toadtoad/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
   ["tokyonight.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\Aiden Sato\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\tokyonight.nvim"
+    path = "/home/toadtoad/.local/share/nvim/site/pack/packer/start/tokyonight.nvim"
   },
   ["vim-fugitive"] = {
     loaded = true,
-    path = "C:\\Users\\Aiden Sato\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-fugitive"
+    path = "/home/toadtoad/.local/share/nvim/site/pack/packer/start/vim-fugitive"
   },
   ["vim-repeat"] = {
     loaded = true,
-    path = "C:\\Users\\Aiden Sato\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-repeat"
+    path = "/home/toadtoad/.local/share/nvim/site/pack/packer/start/vim-repeat"
   },
   ["vim-surround"] = {
     loaded = true,
-    path = "C:\\Users\\Aiden Sato\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-surround"
+    path = "/home/toadtoad/.local/share/nvim/site/pack/packer/start/vim-surround"
   }
 }
 
