@@ -21,12 +21,17 @@ nvim_lsp.omnisharp.setup({
 })
 nvim_lsp.texlab.setup({
   on_attach = function(client)
-    require('lsp_signature' ).on_attach()
+    require('lsp_signature').on_attach()
   end
 })
 
 -- completion plugin
 require('cmp').setup({
+  snippet = {
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body)
+    end
+  },
   sources = {
     { name = "nvim_lsp" },
     { name = "buffer" },
