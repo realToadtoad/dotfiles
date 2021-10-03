@@ -5,6 +5,7 @@ require('plugins.treesitter')
 require('plugins.autopairs')
 require('plugins.icons')
 require('plugins.nvimtree')
+require('plugins.autotags')
 require('plugins.lualine')
 
 -- editing
