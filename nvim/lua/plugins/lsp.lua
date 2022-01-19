@@ -24,6 +24,11 @@ nvim_lsp.texlab.setup({
     require('lsp_signature').on_attach()
   end
 })
+require'lspconfig'.jdtls.setup{
+  on_attach = function(client)
+    require('lsp_signature').on_attach()
+  end
+}
 
 -- completion plugin
 require('cmp').setup({
