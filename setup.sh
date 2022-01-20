@@ -89,6 +89,7 @@ then
   rm -rf "$HOME/.config/nvim.old" &>/dev/null
   mv "$HOME/.config/nvim" "$HOME/.config/nvim.old"
 fi
+yay -S typescript typescript-language-server-bin omnisharp-roslyn-bin texlive-most jdtls
 ln -s "$DIR/nvim" "$HOME/.config/"
 nvim --headless +PackerCompile +PackerInstall +qall
 
