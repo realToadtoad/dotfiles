@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-WALLPAPER_PATH=~/.config/i3/wallpaper.png
+shopt -s extglob
+WALLPAPER_PATH=~/.config/i3/wallpaper.!(*sh)
 
 if echo $DESKTOP_SESSION | grep sway
 then

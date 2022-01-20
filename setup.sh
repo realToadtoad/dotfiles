@@ -31,8 +31,8 @@ fi
 
 echo "Setting up chaotic-aur..."
 # yay -S chaotic-mirrorlist chaotic-keyring --noconfirm &>/dev/null
-sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
-sudo pacman-key --lsign-key 3056513887B78AEB
+sudo pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com
+sudo pacman-key --lsign-key FBA220DFC880C036
 sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
 if ! (cat /etc/pacman.conf | grep chaotic-aur &>/dev/null)
 then
@@ -42,7 +42,7 @@ then
 fi
 
 echo "Installing all software as part of config..."
-yay -Sy firefox kitty neovim font-victor-mono nerd-fonts-victor-mono i3 picom rofi dmenu feh --noconfirm &>/dev/null
+yay -Sy firefox kitty neovim font-victor-mono nerd-fonts-victor-mono i3 picom rofi dmenu feh xclip --noconfirm &>/dev/null
 
 echo "Pulling git submodules..."
 git submodule update --init
@@ -73,6 +73,7 @@ then
   mv "$HOME/.config/i3" "$HOME/.config/i3.old"
 fi
 ln -s "$DIR/i3" "$HOME/.config/"
+chmod +x "$HOME/.config/i3/*.sh"
 
 echo "Symlinking kitty config..."
 if [ -d "$HOME/.config/kitty" ]
@@ -80,6 +81,7 @@ then
   rm -rf "$HOME/.config/kitty.old" &>/dev/null
   mv "$HOME/.config/kitty" "$HOME/.config/kitty.old"
 fi
+ln -s "$DIR/themes/tokyo-night/tokyonight-kitty/TokyoNight.conf" "$DIR/kitty/TokyoNight.conf"
 ln -s "$DIR/kitty" "$HOME/.config/"
 
 echo "Symlinking and installing nvim config/plugins..."
@@ -89,7 +91,7 @@ then
   rm -rf "$HOME/.config/nvim.old" &>/dev/null
   mv "$HOME/.config/nvim" "$HOME/.config/nvim.old"
 fi
-yay -S typescript typescript-language-server-bin omnisharp-roslyn-bin texlive-most jdtls
+yay -S typescript typescript-language-server-bin omnisharp-roslyn-bin texlive-most jdtls --noconfirm &>/dev/null
 ln -s "$DIR/nvim" "$HOME/.config/"
 nvim --headless +PackerCompile +PackerInstall +qall
 
@@ -107,6 +109,7 @@ then
   rm -rf "$HOME/.config/rofi.old" &>/dev/null
   mv "$HOME/.config/rofi" "$HOME/.config/rofi.old"
 fi
+ln -s "$DIR/themes/dracula/rofi/config.rasi" "$DIR/rofi/dracula.rasi"
 ln -s "$DIR/rofi" "$HOME/.config/"
 
 echo "Done!"
