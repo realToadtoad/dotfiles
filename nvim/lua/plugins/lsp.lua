@@ -6,29 +6,26 @@ vim.opt.shortmess = vim.opt.shortmess + 'c'
 
 -- lsp config
 local nvim_lsp = require("lspconfig")
-nvim_lsp.tsserver.setup({
-  on_attach = function(client)
-    require('lsp_signature').on_attach()
-  end
-})
+local on_attach = function(client)
+  require('lsp_signature').on_attach()
+end
+
+-- javascript / typescript
+nvim_lsp.tsserver.setup({ on_attach })
+-- c#
 local pid = vim.fn.getpid();
 local omnisharp_bin = (vim.fn.has("win32") == 1) and [[C:\ProgramData\chocolatey\lib\omnisharp\tools\OmniSharp.exe]] or "/usr/bin/omnisharp"; -- add windows path next time i use windows
 nvim_lsp.omnisharp.setup({
   cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) };
-  on_attach = function(client)
-    require('lsp_signature').on_attach()
-  end
+  on_attach
 })
-nvim_lsp.texlab.setup({
-  on_attach = function(client)
-    require('lsp_signature').on_attach()
-  end
+-- latex
+nvim_lsp.texlab.setup({ on_attach })
+-- java
+nvim_lsp.jdtls.setup({
+  cmd = { "jdtls" };
+  on_attach;
 })
-require'lspconfig'.jdtls.setup{
-  on_attach = function(client)
-    require('lsp_signature').on_attach()
-  end
-}
 
 -- completion plugin
 require('cmp').setup({
