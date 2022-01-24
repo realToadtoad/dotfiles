@@ -26,6 +26,8 @@ nvim_lsp.jdtls.setup({
   cmd = { "jdtls" };
   on_attach;
 })
+--svelte
+nvim_lsp.svelte.setup({ on_attach })
 
 -- completion plugin
 require('cmp').setup({
