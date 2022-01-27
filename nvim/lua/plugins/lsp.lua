@@ -30,11 +30,25 @@ nvim_lsp.jdtls.setup({
 nvim_lsp.svelte.setup({ on_attach })
 
 -- completion plugin
-require('cmp').setup({
+local cmp = require("cmp")
+cmp.setup({
   snippet = {
     expand = function(args)
       require('luasnip').lsp_expand(args.body)
     end
+  },
+  mapping = {
+    ["<CR>"] = cmp.mapping.confirm({
+      select = true
+    }),
+    ["<C-Space>"] = cmp.mapping.complete(),
+    ["<C-e>"] = cmp.mapping.close(),
+    ["<Tab>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s" }),
+    ["<S-Tab>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" }),
+    ["<Down>"] = cmp.mapping.select_next_item(),
+    ["<Up>"] = cmp.mapping.select_prev_item(),
+    ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+    ["<C-f>"] = cmp.mapping.scroll_docs(4),
   },
   sources = {
     { name = "nvim_lsp" },
