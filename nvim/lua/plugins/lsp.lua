@@ -26,8 +26,10 @@ nvim_lsp.jdtls.setup({
   cmd = { "jdtls" };
   on_attach;
 })
---svelte
+-- svelte
 nvim_lsp.svelte.setup({ on_attach })
+-- racket
+nvim_lsp.racket_langserver.setup({ on_attach })
 
 -- completion plugin
 local cmp = require("cmp")
