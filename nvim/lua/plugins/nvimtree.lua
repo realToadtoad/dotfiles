@@ -1,8 +1,12 @@
-vim.g.nvim_tree_show_icons = {
-  git = 0;
-  folders = 1;
-  files = 1;
-  folder_arrows = 1;
-}
-
-require("nvim-tree").setup({})
+require("nvim-tree").setup({
+  renderer = {
+    icons = {
+      show = {
+        git = true;
+	      folder = true;
+	      file = true;
+	      folder_arrow = true;
+      }
+    }
+  };
+})
