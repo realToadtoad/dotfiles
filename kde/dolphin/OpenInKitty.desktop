@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=KonqPopupMenu/Plugin,inode/directory
+Actions=openInKitty;
+X-KDE-AuthorizeAction=shell_access
+
+[Desktop Action openInKitty]
+Name=Open in kitty
+Icon=utilities-terminal
+Exec=/usr/bin/kitty --working-directory %f
