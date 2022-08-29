@@ -7,6 +7,9 @@ vim.api.nvim_set_keymap('', '<Leader>p', '"+p', {noremap = true})
 vim.api.nvim_set_keymap('', '<Leader>P', '"+P', {noremap = true})
 vim.api.nvim_set_keymap('', '<Leader>d', '"+d', {noremap = true})
 
+-- lsp format
+vim.api.nvim_set_keymap('n', '<Leader>f', ':Format', {noremap = true})
+
 -- auto-indent
 vim.api.nvim_set_keymap('', '<Leader>=', 'mqHmwgg=G`wzt`q', {noremap = true})
 

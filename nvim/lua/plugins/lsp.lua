@@ -5,13 +5,13 @@ vim.opt.completeopt = "menuone,noselect"
 vim.opt.shortmess = vim.opt.shortmess + 'c'
 
 -- lsp config
+local bufopts = { noremap=true, silent=true, buffer=bufnr }
 local nvim_lsp = require("lspconfig")
 local on_attach = function(client, bufnr)
   -- enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
   -- mappings
   -- see `:help vim.lsp.*` for documentation on any of the below functions
-  local bufopts = { noremap=true, silent=true, buffer=bufnr }
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
@@ -26,16 +26,12 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<leader>f', vim.lsp.buf.formatting, bufopts)
 
   require('lsp_signature').on_attach()
 end
 
 -- javascript / typescript
 nvim_lsp.tsserver.setup({ on_attach = on_attach })
--- prettier
-local null_ls = require("null-ls")
-local prettier = require("prettier")
 -- c#
 local pid = vim.fn.getpid();
 local omnisharp_bin = (vim.fn.has("win32") == 1) and [[C:\ProgramData\chocolatey\lib\omnisharp\tools\OmniSharp.exe]] or "/usr/bin/omnisharp"; -- add windows path next time i use windows
@@ -54,6 +50,45 @@ nvim_lsp.jdtls.setup({
 nvim_lsp.svelte.setup({ on_attach = on_attach })
 -- racket
 nvim_lsp.racket_langserver.setup({ on_attach = on_attach })
+
+-- format plugin
+local util = require "formatter.util"
+require("formatter").setup {
+  -- Enable or disable logging
+  logging = true,
+  -- Set the log level
+  log_level = vim.log.levels.WARN,
+  -- All formatter configurations are opt-in
+  filetype = {
+    -- Formatter configurations for filetype "lua" go here
+    -- and will be executed in order
+    -- lua = {
+    --   -- "formatter.filetypes.lua" defines default configurations for the
+    --   -- "lua" filetype
+    --   require("formatter.filetypes.lua").stylua,
+    -- },
+    javascript = {
+      require("formatter.filetypes.javascript").prettier
+    },
+    javascriptreact = {
+      require("formatter.filetypes.javascriptreact").prettier
+    },
+    typescript = {
+      require("formatter.filetypes.typescript").prettier
+    },
+    typescriptreact = {
+      require("formatter.filetypes.typescriptreact").prettier
+    },
+    -- Use the special "*" filetype for defining formatter configurations on
+    -- any filetype
+    ["*"] = {
+      -- "formatter.filetypes.any" defines default configurations for any
+      -- filetype
+      -- require("formatter.filetypes.any").remove_trailing_whitespace
+      vim.lsp.buf.formatting
+    }
+  }
+}
 
 -- completion plugin
 local cmp = require("cmp")

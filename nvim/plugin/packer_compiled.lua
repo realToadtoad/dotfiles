@@ -94,6 +94,11 @@ _G.packer_plugins = {
     path = "/home/toadtoad/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["formatter.nvim"] = {
+    loaded = true,
+    path = "/home/toadtoad/.local/share/nvim/site/pack/packer/start/formatter.nvim",
+    url = "https://github.com/mhartington/formatter.nvim"
+  },
   ["lightspeed.nvim"] = {
     loaded = true,
     path = "/home/toadtoad/.local/share/nvim/site/pack/packer/start/lightspeed.nvim",
@@ -108,11 +113,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/toadtoad/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/hoob3rt/lualine.nvim"
-  },
-  ["null-ls.nvim"] = {
-    loaded = true,
-    path = "/home/toadtoad/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
-    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-autopairs"] = {
     loaded = true,
@@ -163,11 +163,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/toadtoad/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
-  },
-  ["prettier.nvim"] = {
-    loaded = true,
-    path = "/home/toadtoad/.local/share/nvim/site/pack/packer/start/prettier.nvim",
-    url = "https://github.com/MunifTanjim/prettier.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,

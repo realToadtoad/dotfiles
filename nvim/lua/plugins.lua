@@ -17,8 +17,7 @@ require('packer').startup(function()
 
   -- lsp
   use 'neovim/nvim-lspconfig'
-  use 'jose-elias-alvarez/null-ls.nvim'
-  use 'MunifTanjim/prettier.nvim'
+  use 'mhartington/formatter.nvim'
   use {"hrsh7th/nvim-cmp", requires = {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
