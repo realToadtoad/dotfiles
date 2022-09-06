@@ -14,4 +14,4 @@ echo "Cloning tokyo night theme..."
 git clone https://github.com/davidmathers/tokyo-night-kitty-theme.git "$CONFIG_DIR/tokyo-night-kitty-theme"
 
 echo "Installing Nerd Fonts..."
-sudo pacman -S ttf-nerd-fonts-symbols
+sudo pacman -S ttf-nerd-fonts-symbols-2048-em
