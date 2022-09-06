@@ -4,6 +4,9 @@ SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]:-$0}"; )" &> /dev/null && 
 CONFIG_DIR=$(realpath "$SCRIPT_DIR/../nvim")
 H=~
 
+echo "Installing nvim and xclip..."
+sudo pacman -S neovim xclip
+
 echo "Symlinking nvim config..."
 rm -rf "~/.config/nvim.old" &>/dev/null
 mv "$H/.config/nvim" "$H/.config/nvim.old" &>/dev/null
