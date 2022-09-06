@@ -4,7 +4,7 @@ SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]:-$0}"; )" &> /dev/null && 
 CONFIG_DIR=$(realpath "$SCRIPT_DIR/../strawberry")
 H=~
 
-echo "Symlinking mpv config..."
+echo "Symlinking strawberry config..."
 DC="$H/.config/strawberry"
 rm -rf "$DC.old" &>/dev/null
 mv "$DC" "$DC.old" &>/dev/null
