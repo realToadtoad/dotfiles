@@ -2,7 +2,9 @@
 vim.opt.termguicolors = true
 
 -- set theme
-vim.g.tokyonight_style = 'night'
+require("tokyonight").setup({
+  style = "night"
+})
 vim.cmd[[colorscheme tokyonight]]
 lualine_theme = 'tokyonight'
 
