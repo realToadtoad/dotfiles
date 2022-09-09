@@ -50,6 +50,8 @@ nvim_lsp.jdtls.setup({
 nvim_lsp.svelte.setup({ on_attach = on_attach })
 -- racket
 nvim_lsp.racket_langserver.setup({ on_attach = on_attach })
+-- python
+nvim_lsp.jedi_language_server.setup({ on_attach = on_attach })
 
 -- format plugin
 local util = require "formatter.util"
