@@ -5,7 +5,7 @@ CONFIG_DIR=$(realpath "$SCRIPT_DIR/../nvim")
 H=~
 
 echo "Installing nvim and xclip..."
-sudo pacman -S neovim xclip
+sudo pacman -S neovim xclip --noconfirm
 
 echo "Symlinking nvim config..."
 rm -rf "~/.config/nvim.old" &>/dev/null
