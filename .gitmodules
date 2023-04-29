@@ -1,9 +1,0 @@
-[submodule "themes/dracula/rofi"]
-	path = themes/dracula/rofi
-	url = https://github.com/dracula/rofi
-[submodule "themes/dracula/wofi"]
-	path = themes/dracula/wofi
-	url = https://github.com/dracula/wofi
-[submodule "themes/tokyo-night/tokyonight-kitty"]
-	path = themes/tokyo-night/tokyonight-kitty
-	url = git@github.com:aerosol/tokyonight-kitty.git
