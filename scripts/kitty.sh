@@ -14,7 +14,7 @@ echo "Cloning tokyo night theme..."
 git clone https://github.com/davidmathers/tokyo-night-kitty-theme.git "$CONFIG_DIR/tokyo-night-kitty-theme"
 
 echo "Installing kitty, nerd fonts, fish..."
-sudo pacman -S kitty fish ttf-nerd-fonts-symbols-2048-em
+sudo pacman -S kitty fish ttf-nerd-fonts-symbols ttf-jetbrains-mono
 
 fish -c "set -Ux EDITOR nvim"
 fish -c "fish_config prompt choose scales"
